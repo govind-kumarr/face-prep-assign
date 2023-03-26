@@ -9,21 +9,51 @@ export const HomeSection = styled.section`
     margin: 1rem auto;
     padding: 0rem 1rem;
   }
-  .skelton {
+  .popup {
+    position: fixed;
+    top: -30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--first-color);
+    padding: 1rem;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s all ease-in-out;
+  }
+  .showpopup {
+    top: 30%;
+  }
+  .closePopup {
+    background: var(--second-color);
+  }
+  .heading {
+    font-weight: bold;
+    font-size: 18px;
   }
 
   @media (max-width: 760px) {
     .person_container {
       grid-template-columns: repeat(2, 1fr);
     }
+    .popup {
+      top: -100%;
+    }
+    .showpopup {
+      top: 50%;
+    }
   }
   @media (max-width: 460px) {
     .person_container {
       grid-template-columns: repeat(1, 1fr);
     }
+    .popup {
+      top: -100%;
+    }
+    .showpopup {
+      top: 50%;
+    }
   }
 `;
-
 
 export const LoginDiv = styled.div`
   .signup_form {
@@ -140,6 +170,7 @@ export const LoginDiv = styled.div`
 export const Person = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
 
   border: 1px solid lightgrey;
   padding: 5px;
@@ -147,6 +178,10 @@ export const Person = styled.div`
 
   span.name {
     font-size: 18px;
+  }
+  span.name:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
   .profile_pic {
     border-radius: 50%;

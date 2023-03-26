@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { BiUserCircle } from "react-icons/bi";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const navigate = useNavigate();
 
   return (
     <NavBar>
-      <button className="btn logout" onClick={() => navigate("/")}>
+      <button
+        className="btn logout"
+        onClick={() => {
+          localStorage.setItem("loginData", null);
+          navigate("/");
+        }}
+      >
         logout
       </button>
       <span className="username">

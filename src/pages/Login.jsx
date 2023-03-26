@@ -15,6 +15,7 @@ export const Login = () => {
     if (data.name === "foo" && data.password === "bar") {
       form.reset();
       alert("Login successful");
+      localStorage.setItem("loginData", JSON.stringify(data));
       navigate("/home");
     } else {
       form.reset();
