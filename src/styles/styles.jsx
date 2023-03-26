@@ -1,52 +1,31 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export const SignUp = () => {
-  const navigate = useNavigate();
+export const HomeSection = styled.section`
+  .person_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0rem 1rem;
+  }
+  .skelton {
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    let data = new FormData(form);
-    data = Object.fromEntries(data);
-    if (!data.name || !data.password) return alert("Please Fill All Fields");
+  @media (max-width: 760px) {
+    .person_container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 460px) {
+    .person_container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+`;
 
-    localStorage.setItem("signUpData", JSON.stringify(data));
 
-    form.reset();
-    alert("Signup Successful");
-    navigate("/login");
-  };
-  return (
-    <SignUpDiv>
-      <section className="signup_form">
-        <h1>signup form</h1>
-        <form className="form" onSubmit={handleSubmit}>
-          <div className="formfield">
-            <label htmlFor="name">name</label>
-            <input name="name" type="text" />
-          </div>
-
-          <div className="formfield">
-            <label htmlFor="password">password</label>
-            <input name="password" type="password" />
-          </div>
-
-          <button className="btn login" type="submit">
-            singup
-          </button>
-          <p>
-            already signed up{" "}
-            <span onClick={() => navigate("/login")}>login here</span>
-          </p>
-        </form>
-      </section>
-    </SignUpDiv>
-  );
-};
-
-const SignUpDiv = styled.div`
+export const LoginDiv = styled.div`
   .signup_form {
     max-width: 1200px;
     background: var(--fourth-color);
@@ -154,6 +133,56 @@ const SignUpDiv = styled.div`
       select {
         width: 100%;
       }
+    }
+  }
+`;
+
+export const Person = styled.div`
+  display: flex;
+  align-items: center;
+
+  border: 1px solid lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+
+  span.name {
+    font-size: 18px;
+  }
+  .profile_pic {
+    border-radius: 50%;
+  }
+`;
+
+export const Skeleton = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+
+  .skeleton_text {
+    width: 200px;
+    height: 0.5rem;
+    margin-bottom: 5px;
+    border-radius: 2px;
+  }
+  .skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+  .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+      background-color: hsl(200, 20%, 95%);
     }
   }
 `;

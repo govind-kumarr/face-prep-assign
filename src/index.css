@@ -14,3 +14,17 @@
 #root {
   width: 100%;
 }
+
+.btn {
+  background: var(--first-color);
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

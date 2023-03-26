@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import { Person } from "../styles/styles";
 
 export const PersonCard = ({ person }) => {
   const { name, picture, login } = person;
@@ -10,19 +10,3 @@ export const PersonCard = ({ person }) => {
     </Person>
   );
 };
-
-const Person = styled.div`
-  display: flex;
-  align-items: center;
-
-  border: 1px solid lightgrey;
-  padding: 5px;
-  border-radius: 5px;
-
-  span.name {
-    font-size: 18px;
-  }
-  .profile_pic {
-    border-radius: 50%;
-  }
-`;
